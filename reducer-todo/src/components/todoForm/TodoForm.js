@@ -7,9 +7,13 @@ const TodoForm = () => {
     setTodo(e.target.value)
   }
 
+  const handleSubmit = e => {
+    e.preventDefault()
+  }
+
   return (
     <div className='form-container'>
-      <form>
+      <form onSubmit={e => handleSubmit(e)}>
         <input
           type='text'
           name='todo'
