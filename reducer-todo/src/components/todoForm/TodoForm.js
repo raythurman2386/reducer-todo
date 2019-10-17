@@ -13,8 +13,9 @@ const TodoForm = () => {
     e.preventDefault()
     dispatch({
       type: 'ADD_TODO',
-      text: todo
+      payload: todo
     })
+    setTodo('')
   }
 
   const handleClear = e => {

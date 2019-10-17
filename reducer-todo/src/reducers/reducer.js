@@ -27,7 +27,7 @@ export const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO': {
       const newTodo = {
-        item: action.text,
+        item: action.payload,
         id: Date.now(),
         completed: false
       }
