@@ -42,12 +42,14 @@ export const reducer = (state, action) => {
       const todos = Object.assign([], state.todos)
       todos.splice(index, 1, todo)
       return {
-        id: Date.now(),
         todos: todos
       }
     }
     case 'DELETE_TODO':
-      return state.todos.filter(todo => todo.id !== todo.completed)
+      const todos = state.todos.filter(todo => todo.completed !== true)
+      return {
+        todos: todos
+      }
     default:
       return state
   }

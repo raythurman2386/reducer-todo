@@ -17,6 +17,13 @@ const TodoForm = () => {
     })
   }
 
+  const handleClear = e => {
+    e.preventDefault()
+    dispatch({
+      type: 'DELETE_TODO'
+    })
+  }
+
   return (
     <div className='form-container'>
       <form onSubmit={e => handleSubmit(e)}>
@@ -29,7 +36,7 @@ const TodoForm = () => {
         />
         <button type='submit'>Add Todo</button>
       </form>
-      <button>Clear todo</button>
+      <button onClick={handleClear}>Clear todo</button>
     </div>
   )
 }
