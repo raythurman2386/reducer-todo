@@ -3,10 +3,9 @@ import TodoItem from './TodoItem'
 import { initialState } from '../../reducers/reducer'
 
 const TodoList = () => {
-  const [state, dispatch] = useReducer(initialState, reducer)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   console.log(state.todos)
-
   return (
     <div>
       <h3>List Component</h3>
