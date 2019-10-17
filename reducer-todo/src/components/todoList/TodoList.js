@@ -3,14 +3,15 @@ import TodoItem from './TodoItem'
 import { TodoContext } from '../../contexts/todoContext'
 
 const TodoList = () => {
-  const { todos } = useContext(TodoContext)
+  const { state } = useContext(TodoContext)
 
-  console.log(todos, 'todos')
+  console.log(state.todos, 'todos')
 
   return (
     <div>
       <h3>List Component</h3>
-      {todos && todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {state.todos &&
+        state.todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   )
 }
