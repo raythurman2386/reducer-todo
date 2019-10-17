@@ -35,8 +35,19 @@ export const reducer = (state, action) => {
         todos: [...state.todos, newTodo]
       }
     }
+    case 'COMPLETE_TODO': {
+      const index = state.todos.findIndex(todo => todo.id === action.id)
+      const todo = Object.assign({}, state.todos[index])
+      todo.completed = !action.completed
+      const todos = Object.assign([], state.todos)
+      todos.splice(index, 1, todo)
+      return {
+        id: Date.now(),
+        todos: todos
+      }
+    }
     case 'DELETE_TODO':
-      return state.todos.filter(todo => todo.id !== action.id)
+      return state.todos.filter(todo => todo.id !== todo.completed)
     default:
       return state
   }

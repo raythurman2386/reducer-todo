@@ -1,10 +1,19 @@
 import React from 'react'
 
-const TodoItem = props => {
+const TodoItem = ({ todo, dispatch }) => {
   // console.log(props)
   return (
-    <div>
-      <p>{props.todo.item}</p>
+    <div
+      onClick={() =>
+        dispatch({
+          type: 'COMPLETE_TODO',
+          id: todo.id,
+          completed: todo.complete,
+          text: todo.item
+        })
+      }
+    >
+      <p>{todo.item}</p>
     </div>
   )
 }
