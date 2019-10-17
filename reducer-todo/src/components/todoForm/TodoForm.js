@@ -34,6 +34,7 @@ const TodoForm = () => {
           value={todo}
           onChange={e => handleChange(e)}
           placeholder='Add Todo'
+          required
         />
         <button type='submit'>Add Todo</button>
       </form>
