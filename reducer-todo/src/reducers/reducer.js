@@ -30,24 +30,18 @@ export const initialState = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
-      return state.map(todo => {
-        if (todo.id === action.id) {
-          return { ...todo, completed: false, id: Date.now() }
-        } else {
-          return todo
-        }
-      })
-    case 'COMPLETE_TODO':
-      return state.map(todo => {
-        if (todo.id === action.id) {
-          return { ...todo, completed: !state.completed }
-        } else {
-          return todo
-        }
-      })
+    case 'ADD_TODO': {
+      const newTodo = {
+        item: action.text,
+        id: Date.now(),
+        completed: false
+      }
+      return {
+        todos: [...state.todos, newTodo]
+      }
+    }
     case 'DELETE_TODO':
-      return state.filter(todo => todo.id !== action.id)
+      return state.todos.filter(todo => todo.id !== action.id)
     default:
       return state
   }
