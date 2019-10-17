@@ -13,7 +13,7 @@ const TodoItem = ({ todo, dispatch }) => {
         })
       }
     >
-      <p>{todo.item}</p>
+      <p className={todo.completed ? 'completed' : ''}>{todo.item}</p>
     </div>
   )
 }
