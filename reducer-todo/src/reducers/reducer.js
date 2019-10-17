@@ -6,22 +6,17 @@ export const initialState = {
       id: 3892987589
     },
     {
-      item: 'Learn about reducers',
-      completed: false,
-      id: 3892983412
-    },
-    {
-      item: 'Learn about reducers',
+      item: 'Holy freaking crap',
       completed: false,
       id: 3892987345
     },
     {
-      item: 'Learn about reducers',
+      item: 'would you look at that',
       completed: false,
       id: 3892987467
     },
     {
-      item: 'Learn about reducers',
+      item: 'It is somewhat working',
       completed: false,
       id: 3892987678
     }
