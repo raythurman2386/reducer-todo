@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { TodoContext } from '../../contexts/todoContext'
 
 const TodoForm = () => {
   const [todo, setTodo] = useState('')
+  const { dispatch } = useContext(TodoContext)
 
   const handleChange = e => {
     setTodo(e.target.value)
@@ -9,6 +11,10 @@ const TodoForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    dispatch({
+      type: 'ADD_TODO',
+      text: todo
+    })
   }
 
   return (
