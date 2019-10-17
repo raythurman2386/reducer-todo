@@ -36,9 +36,9 @@ export const reducer = (state, action) => {
       }
     }
     case 'COMPLETE_TODO': {
-      const index = state.todos.findIndex(todo => todo.id === action.id)
+      const index = state.todos.findIndex(todo => todo.id === action.payload.id)
       const todo = Object.assign({}, state.todos[index])
-      todo.completed = !action.completed
+      todo.completed = !action.payload.completed
       const todos = Object.assign([], state.todos)
       todos.splice(index, 1, todo)
       return {

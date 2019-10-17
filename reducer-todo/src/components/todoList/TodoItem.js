@@ -7,9 +7,11 @@ const TodoItem = ({ todo, dispatch }) => {
       onClick={() =>
         dispatch({
           type: 'COMPLETE_TODO',
-          id: todo.id,
-          completed: todo.complete,
-          text: todo.item
+          payload: {
+            id: todo.id,
+            completed: todo.completed,
+            text: todo.item
+          }
         })
       }
     >
