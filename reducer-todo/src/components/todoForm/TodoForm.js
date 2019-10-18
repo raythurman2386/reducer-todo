@@ -1,29 +1,8 @@
-import React, { useState, useContext } from 'react'
-import { TodoContext } from '../../contexts/todoContext'
+import React from 'react'
+import { useInput } from '../../hooks/useInput'
 
 const TodoForm = () => {
-  const [todo, setTodo] = useState('')
-  const { dispatch } = useContext(TodoContext)
-
-  const handleChange = e => {
-    setTodo(e.target.value)
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    dispatch({
-      type: 'ADD_TODO',
-      payload: todo
-    })
-    setTodo('')
-  }
-
-  const handleClear = e => {
-    e.preventDefault()
-    dispatch({
-      type: 'DELETE_TODO'
-    })
-  }
+  const { todo, handleChange, handleSubmit, handleClear } = useInput('')
 
   return (
     <div className='form-container'>
