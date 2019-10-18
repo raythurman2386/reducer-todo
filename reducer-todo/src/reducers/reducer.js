@@ -37,9 +37,12 @@ export const reducer = (state, action) => {
     }
     case 'COMPLETE_TODO': {
       const index = state.todos.findIndex(todo => todo.id === action.payload.id)
-      const todo = Object.assign({}, state.todos[index])
+      // Spread operator can be used in place of Object.assign
+      const todo = { ...state.todos[index] }
+      // const todo = Object.assign({}, state.todos[index])
       todo.completed = !action.payload.completed
-      const todos = Object.assign([], state.todos)
+      const todos = [...state.todos]
+      // const todos = Object.assign([], state.todos)
       todos.splice(index, 1, todo)
       return {
         todos: todos
