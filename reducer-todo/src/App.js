@@ -8,8 +8,6 @@ import { TodoProvider } from './contexts/todoContext'
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  // console.log(state.todos, 'app')
-
   return (
     <div className='App'>
       <TodoProvider value={{ state, dispatch }}>

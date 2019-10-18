@@ -5,8 +5,6 @@ import { TodoContext } from '../../contexts/todoContext'
 const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext)
 
-  // console.log(state.todos, 'todos')
-
   return (
     <div>
       <h3>List Component</h3>
