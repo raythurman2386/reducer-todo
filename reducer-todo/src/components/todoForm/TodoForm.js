@@ -1,13 +1,16 @@
 import React from 'react'
 import { useInput } from '../../hooks/useInput'
 
+// Reactstrap
+import { Button, Input, InputGroup } from 'reactstrap'
+
 const TodoForm = () => {
   const { todo, handleChange, handleSubmit, handleClear } = useInput('')
 
   return (
-    <div className='form-container'>
-      <form onSubmit={e => handleSubmit(e)}>
-        <input
+    <form onSubmit={e => handleSubmit(e)}>
+      <InputGroup className='form-container'>
+        <Input
           type='text'
           name='todo'
           value={todo}
@@ -15,10 +18,14 @@ const TodoForm = () => {
           placeholder='Add Todo'
           required
         />
-        <button type='submit'>Add Todo</button>
-      </form>
-      <button onClick={handleClear}>Clear todo</button>
-    </div>
+        <Button color='success' type='submit'>
+          Add Todo
+        </Button>
+        <Button color='danger' onClick={handleClear}>
+          Clear todo
+        </Button>
+      </InputGroup>
+    </form>
   )
 }
 
