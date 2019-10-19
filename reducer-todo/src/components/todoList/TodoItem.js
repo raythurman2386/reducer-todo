@@ -1,9 +1,12 @@
 import React from 'react'
 
+import { ListGroupItem } from 'reactstrap'
+
 const TodoItem = ({ todo, dispatch }) => {
   // console.log(props)
   return (
-    <div
+    <ListGroupItem
+      color={todo.completed ? 'danger' : 'success'}
       onClick={() =>
         dispatch({
           type: 'COMPLETE_TODO',
@@ -15,8 +18,8 @@ const TodoItem = ({ todo, dispatch }) => {
         })
       }
     >
-      <p className={todo.completed ? 'completed' : ''}>{todo.item}</p>
-    </div>
+      {todo.item}
+    </ListGroupItem>
   )
 }
 
