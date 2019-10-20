@@ -6,6 +6,7 @@ import moment from 'moment'
 const TodoItem = ({ todo, dispatch }) => {
   return (
     <ListGroupItem
+      className='todo-item'
       color={todo.completed ? 'danger' : 'success'}
       style={{
         display: 'flex',
@@ -24,9 +25,9 @@ const TodoItem = ({ todo, dispatch }) => {
         })
       }
     >
-      <p>{todo.item}</p>
-      <p>{'Complete By:'}</p>
-      <p>
+      <p style={{ textAlign: 'left' }}>{todo.item}</p>
+      <p style={{ textAlign: 'center' }}>{'Complete By:'}</p>
+      <p style={{ textAlign: 'right' }}>
         {moment()
           .add(2, 'hour')
           .calendar()}
