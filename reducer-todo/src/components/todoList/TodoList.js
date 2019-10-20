@@ -6,14 +6,16 @@ import { ListGroup } from 'reactstrap'
 
 const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext)
-  // console.log(state.unit, state.time, 'list')
 
   return (
     <ListGroup>
-      {state.todos &&
+      {state.todos.length > 0 ? (
         state.todos.map(todo => (
           <TodoItem key={todo.id} todo={todo} dispatch={dispatch} />
-        ))}
+        ))
+      ) : (
+        <h2>Add a few todos and get to work!</h2>
+      )}
     </ListGroup>
   )
 }

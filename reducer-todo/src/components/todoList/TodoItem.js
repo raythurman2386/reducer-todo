@@ -8,28 +8,22 @@ const TodoItem = ({ todo, dispatch }) => {
     <ListGroupItem
       className='todo-item'
       color={todo.completed ? 'danger' : 'success'}
-      style={{
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        padding: '10px 0 0',
-      }}
       onClick={() =>
         dispatch({
           type: 'COMPLETE_TODO',
           payload: {
             id: todo.id,
             completed: todo.completed,
-            text: todo.item,
-          },
+            text: todo.item
+          }
         })
       }
     >
-      <p style={{ textAlign: 'left' }}>{todo.item}</p>
-      <p style={{ textAlign: 'center' }}>{'Complete By:'}</p>
-      <p style={{ textAlign: 'right' }}>
+      <p>{todo.item}</p>
+      <p>
+        Complete By:{' '}
         {moment()
-          .add(2, 'hour')
+          .add(1, 'day')
           .calendar()}
       </p>
     </ListGroupItem>
