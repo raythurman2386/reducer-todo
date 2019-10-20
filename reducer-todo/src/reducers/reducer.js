@@ -1,26 +1,5 @@
 export const initialState = {
-  todos: [
-    {
-      item: 'Learn about reducers',
-      completed: false,
-      id: 3892987589
-    },
-    {
-      item: 'Holy freaking crap',
-      completed: false,
-      id: 3892987345
-    },
-    {
-      item: 'would you look at that',
-      completed: false,
-      id: 3892987467
-    },
-    {
-      item: 'It is somewhat working',
-      completed: false,
-      id: 3892987678
-    }
-  ]
+  todos: [],
 }
 
 export const reducer = (state, action) => {
@@ -29,10 +8,10 @@ export const reducer = (state, action) => {
       const newTodo = {
         item: action.payload,
         id: Date.now(),
-        completed: false
+        completed: false,
       }
       return {
-        todos: [...state.todos, newTodo]
+        todos: [...state.todos, newTodo],
       }
     }
     case 'COMPLETE_TODO': {
@@ -45,13 +24,13 @@ export const reducer = (state, action) => {
       // const todos = Object.assign([], state.todos)
       todos.splice(index, 1, todo)
       return {
-        todos: todos
+        todos: todos,
       }
     }
     case 'DELETE_TODO':
       const todos = state.todos.filter(todo => todo.completed !== true)
       return {
-        todos: todos
+        todos: todos,
       }
     default:
       return state
