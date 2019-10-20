@@ -6,6 +6,7 @@ import { ListGroup } from 'reactstrap'
 
 const TodoList = () => {
   const { state, dispatch } = useContext(TodoContext)
+  // console.log(state.unit, state.time, 'list')
 
   return (
     <ListGroup>
